@@ -16,7 +16,7 @@
     var keyNum=1;
     function keyd(e){
         console.log(e.key);
-        if(e.key == "CapsLock"){
+        if(e.key == "`"){
             keyNum++;
             if(keyNum%2 == 1){
                 enable = !enable;
