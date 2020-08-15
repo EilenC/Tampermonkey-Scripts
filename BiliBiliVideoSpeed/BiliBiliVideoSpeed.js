@@ -15,12 +15,17 @@
     function keyd(e){
         console.log(e.key);
         var speedLabel = document.getElementsByClassName('bilibili-player-video-btn-speed-name')[0];
+        var speed = 1;
         if(e.key == "+"){
-            video.playbackRate +=0.2;
+            speed = video.playbackRate + 0.20;
+            video.playbackRate = speed.toFixed(3);
+            console.log(video.playbackRate);
         }else if(e.key == "-"){
-            video.playbackRate -=0.2;
+            speed = video.playbackRate - 0.20;
+            video.playbackRate = speed.toFixed(3);
+            console.log(video.playbackRate);
         }
-        speedLabel.innerHTML=video.playbackRate+"";
+        speedLabel.innerHTML=video.playbackRate+"x";
     }
     document.body.removeEventListener('keydown', keyd);
     document.body.addEventListener('keydown', keyd);
