@@ -125,21 +125,23 @@
                 }
                 break;
             case "ArrowRight":
-                if (isEdge) {
+                if (isEdge && enable) {
                     scrollSpeed = roundToTwoDecimalPlaces(scrollSpeed += 0.02);
                     showNotification('Speed:' + scrollSpeed, tipsTime);
-                }else{
+                }
+                if (!isEdge && enable) {
                     time -= 20;
                 }
                 break;
             case "ArrowLeft":
-                if(isEdge) {
+                if (isEdge && enable) {
                     if (scrollSpeed - 0.02 > 0) {
                         scrollSpeed -= 0.02
                     }
                     scrollSpeed = roundToTwoDecimalPlaces(scrollSpeed);
                     showNotification('Speed:' + scrollSpeed, tipsTime);
-                }else{
+                }
+                if (!isEdge && enable) {
                     time += 20;
                 }
                 break;
