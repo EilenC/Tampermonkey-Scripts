@@ -2,7 +2,7 @@
 // @name        AutoScroll2
 // @description AutoScroll - 自动向下滚动页面,支持快捷键
 // @include     http*
-// @version     2020/04/21
+// @version     2023/11/02
 // @author      Eilen https://github.com/EilenC
 // @grant       none
 // @namespace https://greasyfork.org/users/319354
