@@ -83,9 +83,10 @@
     let tipsTime = 300;
     let handler = 0;
     let time = 200;
+    let chromeSpeedSpeed = 0.55;
     let isEdge = navigator.userAgent.includes('Edg') ? true : false;
 
-    console.log('isEdge:',isEdge);
+    console.log('isEdge:', isEdge);
 
     function toggleScroll() {
         enable = !enable;
@@ -95,14 +96,14 @@
             } else {
                 autoScroll();
             }
-            showNotification('AutoScroll:Open', tipsTime);
+            showNotification('AutoScroll:On', tipsTime);
         } else {
-            if (isEdge){
+            if (isEdge) {
                 cancelAnimationFrame(animationFrameId);
-            }else{
+            } else {
                 clearTimeout(handler);
             }
-            showNotification('AutoScroll:Close', tipsTime);
+            showNotification('AutoScroll:Off', tipsTime);
         };
     }
 
@@ -131,6 +132,8 @@
                 }
                 if (!isEdge && enable) {
                     time -= 20;
+                    chromeSpeedSpeed = roundToTwoDecimalPlaces(chromeSpeedSpeed += 0.02);
+                    showNotification('Speed:' + chromeSpeedSpeed, tipsTime);
                 }
                 break;
             case "ArrowLeft":
@@ -143,6 +146,12 @@
                 }
                 if (!isEdge && enable) {
                     time += 20;
+                    if (chromeSpeedSpeed - 0.02 <= 0) {
+                        chromeSpeedSpeed = 0.02
+                    }else{
+                        chromeSpeedSpeed = roundToTwoDecimalPlaces(chromeSpeedSpeed -= 0.02);
+                    }
+                    showNotification('Speed:' + chromeSpeedSpeed, tipsTime);
                 }
                 break;
         }
@@ -156,7 +165,7 @@
     function autoScroll() {
         console.log("autoScroll: " + document.documentElement.scrollTop);
         console.log(window.scrollY, window.pageYOffset, document.documentElement.scrollTop);
-        document.documentElement.scrollTop += 2;
+        document.documentElement.scrollTop += 1 / window.devicePixelRatio + 0.05;
         handler = setTimeout(autoScroll, time);
     }
 
