@@ -125,6 +125,7 @@
                     keyDownCount = 0;
                 }
                 break;
+            case "a":
             case "ArrowRight":
                 if (isEdge && enable) {
                     scrollSpeed = roundToTwoDecimalPlaces(scrollSpeed += 0.02);
@@ -136,6 +137,7 @@
                     showNotification('Speed:' + chromeSpeedSpeed, tipsTime);
                 }
                 break;
+            case "s":
             case "ArrowLeft":
                 if (isEdge && enable) {
                     if (scrollSpeed - 0.02 > 0) {
