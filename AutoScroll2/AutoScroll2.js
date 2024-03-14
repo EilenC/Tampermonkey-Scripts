@@ -92,17 +92,23 @@
         switch (event.key) {
             case 's':
             case 'ArrowLeft':
-                let step = 0.01
-                if (scrollSpeed > 2) {
-                    step = 0.1
+                if(isScrolling)
+                {
+                    let step = 0.01
+                    if (scrollSpeed > 2) {
+                        step = 0.1
+                    }
+                    scrollSpeed = Math.max(scrollSpeed - step, 0.01);
+                    showNotification('AutoScroll:Speed: ' + roundToTwoDecimalPlaces(scrollSpeed), tipsTime);
                 }
-                scrollSpeed = Math.max(scrollSpeed - step, 0.01);
-                showNotification('AutoScroll:Speed: ' + roundToTwoDecimalPlaces(scrollSpeed), tipsTime);
                 break;
             case 'a':
             case 'ArrowRight':
-                scrollSpeed = Math.min(scrollSpeed + 0.1, 99);
-                showNotification('AutoScroll:Speed: ' + roundToTwoDecimalPlaces(scrollSpeed), tipsTime);
+                if(isScrolling)
+                {
+                    scrollSpeed = Math.min(scrollSpeed + 0.1, 99);
+                    showNotification('AutoScroll:Speed: ' + roundToTwoDecimalPlaces(scrollSpeed), tipsTime);
+                }
                 break;
             case "`":
                 if (currentTime - lastKeyDownTime < 300) {
