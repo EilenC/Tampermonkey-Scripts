@@ -7,6 +7,7 @@
 // @include      https://*.bilibili.com/*
 // @match        https://www.bilibili.com/video/
 // @grant        none
+// @license      GNU GPLv3
 // ==/UserScript==
 
 (function() {

@@ -5,8 +5,9 @@
 // @version     1.0.2
 // @author      Eilen https://github.com/EilenC
 // @grant       none
-// @namespace https://greasyfork.org/users/319354
-// @supportURL https://github.com/EilenC/Tampermonkey-Scripts/blob/master/AutoScroll2/AutoScroll2.js
+// @namespace   https://greasyfork.org/users/319354
+// @supportURL  https://github.com/EilenC/Tampermonkey-Scripts/blob/master/AutoScroll2/AutoScroll2.js
+// @license     GNU GPLv3
 // ==/UserScript==
 
 (function (document) {
